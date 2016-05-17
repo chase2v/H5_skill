@@ -1,0 +1,8 @@
+.H5ComponentRing_name{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font: 12px 'Arial';
+	text-align: center;
+}

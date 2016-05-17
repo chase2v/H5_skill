@@ -1,0 +1,12 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.section{
+	position: relative;
+	width: 100%;
+	/*background: #eee;	*/
+}
+.section:first-child{
+	background: #f86060;
+}

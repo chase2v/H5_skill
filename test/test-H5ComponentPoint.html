@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test-fullpage</title>
+
+	<script type="text/javascript" src="../js/lib/jquery.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+	<script type="text/javascript" src="../js/H5ComponentPoint.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentPoint.css">
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section" id="page_1">首页</div>
+		<div class="section">总体展示</div>
+		<div class="section">分类展示1</div>
+		<div class="section">分类展示2</div>
+	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			onLeave: function(index, nextIndex, direction){
+
+			},
+			afterLoad : function(anchorLink, index){
+				
+			}
+		});
+		// $.fn.fullpage.moveTo(3,0);
+
+		// 设置组件参数
+		var cfg = [
+			{
+				type: 'point',
+				name: 'Javascript',
+				date: '50%',
+				css : {
+					width: '200px',
+					height: '200px',
+					top: '200px',
+					left: '200px',
+					background: '#555',
+				},
+				// animateIn: {
+				// 	opacity: 1,
+				// }
+			},
+			{
+				type: 'point',
+				name: 'Html',
+				date: '30%',
+				css : {
+					width: '200px',
+					height: '200px',
+					top: '200px',
+					// left: '300px',
+					background: 'red',
+				},
+				ischild: true,
+				// animateIn: {
+				// 	opacity: 1,
+				// }
+			},
+		]
+		var point;
+		for (var i = 0; i <= cfg.length - 1; i++) {
+			if (i == 0) {
+				point = new H5ComponentPoint('point',cfg[i]);
+				$('#page_1').append(point);
+			} else{
+				point.append(new H5ComponentPoint('point',cfg[i]))
+			}
+			
+		}
+		
+		
+		// point.fadeIn();
+	});
+	</script>
+</body>
+</html>

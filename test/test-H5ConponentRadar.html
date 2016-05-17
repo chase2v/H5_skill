@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test-fullpage</title>
+
+	<script type="text/javascript" src="../js/lib/jquery.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+	<script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentRadar.css">
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section" id="page_1">首页</div>
+		<div class="section">总体展示</div>
+		<div class="section">分类展示1</div>
+		<div class="section">分类展示2</div>
+	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			onLeave: function(index, nextIndex, direction){
+
+			},
+			afterLoad : function(anchorLink, index){
+				// polyline.trigger('onLoad');
+			}
+		});
+		// $.fn.fullpage.moveTo(3,0);
+	});
+
+	// 设置组件参数
+	var cfg = {
+		type: 'radar',
+		date:{
+			name:['css','js','html','Dom','jquery'],
+			percent:[.7,.5,.9,.4,.6],
+			color:['#ff7676'],
+		},
+		css : {
+			width: '300px',
+			height: '300px',
+			top: '200px',
+			left: '200px',
+			// opacity: 0,
+		},
+		// animateIn: {
+		// 	opacity: 1,
+		// },
+		// animateOut: {
+		// 	opacity: 0,
+		// },
+	}
+
+	var radar = new H5ComponentRadar('point',cfg);
+	$('#page_1').append(radar);
+	// radar.trigger('onLoad');
+	</script>
+</body>
+</html>

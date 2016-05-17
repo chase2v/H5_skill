@@ -1,0 +1,17 @@
+.H5ComponentPolyline_name{
+	position: relative;
+	left: 25px;
+	top: -5px;
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+	font: 12px "等线";
+	color: #000;
+}
+.H5ComponentPolyline_per{
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	font: 12px "Arial";
+	color: #99c0ff;
+}

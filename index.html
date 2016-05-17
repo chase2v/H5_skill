@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>index</title>
+	<script type="text/javascript" src="./js/lib/jquery.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.fullPage.js"></script>
+
+	<script type="text/javascript" src="./js/H5.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/H5.css">
+
+	<script type="text/javascript">
+		// 加载组件资源
+		var component = [
+			'Base','Bar','Bar_v','Pie','Point','Polyline','Radar','Ring'
+		];
+		for (var i = 0; i < component.length; i++) {
+			document.write('<script type="text/javascript" src="./js/H5Component' + component[i] + '.js"><\/script>');
+			document.write('<link rel="stylesheet" type="text/css" href="./css/H5Component' + component[i] + '.css">');
+		}
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+		var cfg = {
+			base:[
+			{
+				type: 'base',
+				css : {
+					width: '400px',
+					height: '400px',
+					top: '200px',
+					left: '200px',
+					background: 'url(./img/rocket.png)',
+					opacity: 0,
+				},
+				animateIn: {
+					opacity: 1,
+				},
+				animateOut: {
+					opacity: 0,
+				},
+			},
+			],
+			pie: {
+				type: 'pie',
+				date:{
+					name:['css','js','html','Dom','jquery'],
+					percent:[.5,.1,.2,.1,.1],
+					color:['#ff7676','blue','pink','yellow','green'],
+				},
+				css : {
+					width: '400px',
+					height: '400px',
+					top: '200px',
+					left: '200px',
+				},
+			},
+			ring:{
+				type: 'ring',
+				date:{
+					name:'css',
+					percent:.7,
+					color:'#ff7676',
+				},
+				css : {
+					width: '400px',
+					height: '400px',
+					top: '200px',
+					left: '200px',
+				},
+			},
+			bar:{
+				type: 'bar',
+				date:{
+					name:['css','js','html','Dom','jquery'],
+					percent:[.4,.3,.2,.05,.05],
+					color:['#ff7676']
+				},
+				css : {
+					width: '400px',
+					top: '200px',
+					left: '200px',
+					// opacity: 0,
+				},
+				// animateIn: {
+				// 	opacity: 1,
+				// },
+				// animateOut: {
+				// 	opacity: 0,
+				// },
+			},
+			bar_v:{
+				type: 'bar_v',
+				date:{
+					name:['css','js','html','Dom','jquery'],
+					percent:[.4,.3,.2,.05,.05],
+					color:['#ff7676']
+				},
+				css : {
+					width: '400px',
+					top: '200px',
+					left: '200px',
+					// opacity: 0,
+				},
+				// animateIn: {
+				// 	opacity: 1,
+				// },
+				// animateOut: {
+				// 	opacity: 0,
+				// },
+			},
+			// point:{[
+			// 	{
+			// 		type: 'point',
+			// 		name: 'Javascript',
+			// 		date: '50%',
+			// 		css : {
+			// 			width: '200px',
+			// 			height: '200px',
+			// 			top: '200px',
+			// 			left: '200px',
+			// 			background: '#555',
+			// 		},
+			// 		// animateIn: {
+			// 		// 	opacity: 1,
+			// 		// }
+			// 	},
+			// 	{
+			// 		type: 'point',
+			// 		name: 'Html',
+			// 		date: '30%',
+			// 		css : {
+			// 			width: '200px',
+			// 			height: '200px',
+			// 			top: '200px',
+			// 			// left: '300px',
+			// 			background: 'red',
+			// 		},
+			// 		ischild: true,
+			// 		// animateIn: {
+			// 		// 	opacity: 1,
+			// 		// }
+			// 	},
+			// ]},
+			radar:{
+				type: 'radar',
+				date:{
+					name:['css','js','html','Dom','jquery'],
+					percent:[.7,.5,.9,.4,.6],
+					color:['#ff7676'],
+				},
+				css : {
+					width: '300px',
+					height: '300px',
+					top: '200px',
+					left: '200px',
+					// opacity: 0,
+				},
+				// animateIn: {
+				// 	opacity: 1,
+				// },
+				// animateOut: {
+				// 	opacity: 0,
+				// },
+			},
+			polyline:{
+				type: 'polyline',
+				date:{
+					name:['css','js','html','Dom','jquery'],
+					percent:[.4,.3,.2,.05,.05],
+					color:['#ff7676']
+				},
+				css : {
+					width: '300px',
+					height: '150px',
+					top: '200px',
+					left: '200px',
+					// background: '#555',
+					// opacity: 0,
+				},
+				// animateIn: {
+				// 	opacity: 1,
+				// },
+				// animateOut: {
+				// 	opacity: 0,
+				// },
+			}
+		}
+
+		var H5 = H5();
+		H5.addPage()
+			.addComponent('font',{
+				type: 'base',
+				center: true,
+				css : {
+					width: '273px',
+					height: '70px',
+					top: '55px',
+					left: '2px',
+					background: 'url(./img/font_1.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					top: '155px',
+					opacity: 1,
+				},
+				animateOut: {
+					top: 55,
+					opacity: 0,
+				},
+			})
+			.addComponent('font',{
+				type: 'base',
+				center: true,
+				css : {
+					width: 390,
+					height: 120,
+					top: 307,
+					left: -200,
+					background: 'url(./img/font_2.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					width: 195,
+					height: 61,
+					opacity: 1,
+				},
+				animateOut: {
+					width: 390,
+					height: 120,
+					opacity: 0,
+				},
+				delay: 500,
+			})
+			.addComponent('pic',{
+				type: 'base',
+				css : {
+					width: '263px',
+					height: '116px',
+					bottom: -120,
+					right: 0,
+					background: 'url(./img/mountain.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -120,
+					opacity: 0,
+				},
+				speed: 500,
+				delay: 500,
+			})
+			.addComponent('pic',{
+				type: 'base',
+				css : {
+					width: 32,
+					height: 35,
+					bottom: 10,
+					right: 16,
+					background: 'url(./img/sun.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 70,
+					right: 48,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: 10,
+					right: 16,
+					opacity: 0,
+				},
+				speed: 1000,
+				delay:1000,
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: '总体分析',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'HTML&5相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'CSS&3相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'Javascript相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'HTML Dom相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'jQuery相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: 'PS相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: '后端相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: '数据库相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 50,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 50,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})		
+		.loader();
+	</script>
+</body>
+</html>

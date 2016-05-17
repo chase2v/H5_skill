@@ -1,0 +1,36 @@
+.H5Component_bar_child{
+	position: relative;
+	margin-bottom: 10px;
+	height: 20px;
+	background: #99c0ff;
+	border-radius: 5px;
+}
+.H5Component_bar_childCover{
+	position: absolute;
+	right: 0;
+	margin-bottom: 10px;
+	height: 20px;
+	width: 100%;
+	background: #fff;
+	animation: load 1s ease 1 forwards;
+}
+.H5Component_bar_childName{
+	position: absolute;
+	left: -50px;
+	width: 50px;
+	font: 15px "Arial";
+	text-align: center;
+	display: none;
+}
+.H5Component_bar_childPer{
+	position: absolute;
+	right: -40px;
+	width: 30px;
+	font: 15px "Arial";
+	color: #99c0ff;
+	display: none;
+}
+
+@keyframes load{
+	100%{width: 0;}
+}

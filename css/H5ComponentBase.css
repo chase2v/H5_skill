@@ -1,0 +1,11 @@
+.H5Component{
+	position: absolute;
+}
+.title{
+	font: bold 20px "等线";
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}

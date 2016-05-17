@@ -1,0 +1,38 @@
+.H5Component_bar_v_child{
+	position: relative;
+	float: left;
+	margin-right: 20px;
+	width: 20px;
+	background: #99c0ff;
+	border-radius: 5px;
+}
+.H5Component_bar_v_childCover{
+	position: absolute;
+	top: 0;
+	margin-right: 20px;
+	width: 20px;
+	height: 100%;
+	background: #fff;
+	animation: load 1s ease 1 forwards;
+}
+.H5Component_bar_v_childName{
+	position: absolute;
+	left: -5px;
+	bottom: -20px;
+	width: 30px;
+	font: 15px "Arial";
+	text-align: center;
+	display: none;
+}
+.H5Component_bar_v_childPer{
+	position: absolute;
+	top: -20px;
+	width: 30px;
+	font: 15px "Arial";
+	color: #99c0ff;
+	display: none;
+}
+
+@keyframes load{
+	100%{height: 0;}
+}
