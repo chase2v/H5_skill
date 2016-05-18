@@ -58,7 +58,7 @@ function H5() {
 		});
 
 		this.page[0].find('.H5Component').trigger('onLoad');
-		$.fn.fullpage.moveTo(2, 0);
+		// $.fn.fullpage.moveTo(2, 0);
 	}
 
 	return this;
