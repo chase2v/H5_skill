@@ -2,7 +2,9 @@ function H5ComponentBase(name,cfg) {
 	var base = $('<div class="H5Component H5Component_' + cfg.type + ' H5Component_' + name + '">');
 	base.attr('id', name + '_' + Math.ceil(Math.random()*10000));
 
-	base.css(cfg.css);
+	cfg.css && base.css(cfg.css);
+
+	cfg.text && base.html(cfg.text);
 
 	if (cfg.center === true) {
 		base.css({left:'50%',transform:'translateX(-50%)'});

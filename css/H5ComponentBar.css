@@ -1,3 +1,6 @@
+.H5Component_bar{
+	display: none;
+}
 .H5Component_bar_child{
 	position: relative;
 	margin-bottom: 10px;
@@ -12,15 +15,14 @@
 	height: 20px;
 	width: 100%;
 	background: #fff;
-	animation: load 1s ease 1 forwards;
+	animation: load 1s ease 1 both;
+	display: block;
 }
 .H5Component_bar_childName{
 	position: absolute;
-	left: -50px;
-	width: 50px;
+	left: -80px;
+	width: 80px;
 	font: 15px "Arial";
-	text-align: center;
-	display: none;
 }
 .H5Component_bar_childPer{
 	position: absolute;
@@ -28,7 +30,6 @@
 	width: 30px;
 	font: 15px "Arial";
 	color: #99c0ff;
-	display: none;
 }
 
 @keyframes load{

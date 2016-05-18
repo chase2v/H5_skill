@@ -38,6 +38,9 @@ function H5() {
 			case 'ring':
 			currentPage.append(new H5ComponentRing(name,cfg));
 			break;
+			case 'clock':
+			currentPage.append(new H5ComponentClock(name,cfg));
+			break;
 			default:
 			currentPage.append(new H5ComponentBase(name,cfg));
 		}
@@ -55,6 +58,7 @@ function H5() {
 		});
 
 		this.page[0].find('.H5Component').trigger('onLoad');
+		$.fn.fullpage.moveTo(2, 0);
 	}
 
 	return this;

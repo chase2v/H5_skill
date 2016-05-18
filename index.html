@@ -14,7 +14,7 @@
 	<script type="text/javascript">
 		// 加载组件资源
 		var component = [
-			'Base','Bar','Bar_v','Pie','Point','Polyline','Radar','Ring'
+			'Base','Bar','Bar_v','Pie','Point','Polyline','Radar','Ring','clock'
 		];
 		for (var i = 0; i < component.length; i++) {
 			document.write('<script type="text/javascript" src="./js/H5Component' + component[i] + '.js"><\/script>');
@@ -99,7 +99,7 @@
 					percent:[.4,.3,.2,.05,.05],
 					color:['#ff7676']
 				},
-				css : {
+				css:{
 					width: '400px',
 					top: '200px',
 					left: '200px',
@@ -282,7 +282,7 @@
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
-				title: '总体分析',
+				title: '简介',
 				css : {
 					width: 310,
 					height: 50,
@@ -291,14 +291,37 @@
 					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
 				}
 			})
-			.addComponent('footer',{
+			.addComponent('text',{
 				type: 'base',
+				center: true,
+				text: '这个网页既是我学习制作的项目，也可以当做我自己评估自己技能值得地方。所以数据尽量客观，不过还是仅供参考，我不想骗大家，更不想骗自己。<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我所展示的，就是我。',
+				css : {
+					width: 300,
+					borderRadius: 20,
+					backgroundColor: '#99c0ff',
+					padding: '10px 0 10px 10px',
+					top: 200,
+					font: '18px "等线"',
+					color: '#fff',
+					lineHeight: '25px',
+					textIndent: '2em',
+					opacity: 0,
+				},
+				animateIn: {
+					opacity: 1,
+				},
+				animateOut: {
+					opacity: 0,
+				},
+			})
+			.addComponent('pic',{
+				type: 'base',
+				center: true,
 				css : {
 					width: '100%',
-					height: 50,
-					bottom: -50,
-					left: 0,
-					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					height: '40%',
+					bottom: -200,
+					background: 'url(./img/man.gif) 0 0 / 100% 100% no-repeat',
 					opacity: 0,
 				},
 				animateIn: {
@@ -306,14 +329,15 @@
 					opacity: 1,
 				},
 				animateOut: {
-					bottom: -50,
+					bottom: -200,
 					opacity: 0,
-				}
+				},
+				delay: 500,
 			})
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
-				title: 'HTML&5相关技能',
+				title: '学习总时长',
 				css : {
 					width: 310,
 					height: 50,
@@ -340,6 +364,22 @@
 					bottom: -50,
 					opacity: 0,
 				}
+			})
+			.addComponent('clock',{
+				type: 'clock',
+				center: true,
+				css : {
+					width: 202,
+					height: 202,
+					top: '200px',
+					opacity: 0,
+				},
+				animateIn: {
+					opacity: 1,
+				},
+				animateOut: {
+					opacity: 0,
+				},
 			})
 		.addPage()
 			.addComponent('caption',{
