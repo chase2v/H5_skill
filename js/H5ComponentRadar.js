@@ -25,17 +25,19 @@ function H5ComponentRadar(name,cfg) {
 			ctx.beginPath();
 			ctx.moveTo(150+Math.sin(rad)*10*i,150+Math.cos(rad)*10*i);
 			for (var j = 0; j <= t - 1; j++) {
-				var x = 150 + Math.sin(rad*(j+1))*10*i;
-				var y = 150 + Math.cos(rad*(j+1))*10*i;
+				var x = Math.ceil(150 + Math.sin(rad*(j+1))*10*i);
+				var y = parseInt(150 + Math.cos(rad*(j+1))*10*i);
 				ctx.lineTo(x,y);
 
 				// 添加项目名称
 				if(at == 100 && i == 10){
 					var childName = $('<div class="H5ComponentRadar_name">' + cfg.date.name[j] + '</div>');
 					cfg.date.color[j] && childName.css('color',cfg.date.color[j]);
-					if (x<150) {
+					if (x==150) {
+						childName.css('left',(x-25) +'px');
+					} else if(x < 150){
 						childName.css('right',(300-x) +'px');
-					} else{
+					}else if(x > 150){
 						childName.css('left',x+'px');
 					}
 					if (y<150) {
@@ -86,6 +88,7 @@ function H5ComponentRadar(name,cfg) {
 		}
 	}
 	var at;
+	
 	radar.on('onLoad',function () {
 		radar.show();
 		at = 1;
@@ -93,6 +96,7 @@ function H5ComponentRadar(name,cfg) {
 	});
 	radar.on('onLeave',function () {
 		radar.hide();
+		radar.find('.H5ComponentRadar_name').text('');
 	});
 
 	return radar;

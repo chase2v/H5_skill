@@ -9,3 +9,10 @@
 	height: 50px;
 	line-height: 50px;
 }
+.H5Component_direc{
+	position: absolute;
+	font: 15px "等线";
+	line-height: 25px;
+	height: 25px;
+	width: 75%;
+}

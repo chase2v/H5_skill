@@ -282,6 +282,53 @@
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
+				title: 'Javascript相关技能',
+				css : {
+					width: 310,
+					height: 50,
+					top: 25,
+					left: 0,
+					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				css : {
+					width: '100%',
+					height: 33,
+					bottom: -50,
+					left: 0,
+					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+			.addComponent('direc',{
+				type: 'base',
+				center: true,
+				direc: '1.简介',
+				css:{
+					top: 200,
+				},
+				animateIn: {
+					bottom: 0,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
 				title: '简介',
 				css : {
 					width: 310,
@@ -384,7 +431,7 @@
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
-				title: 'CSS&3相关技能',
+				title: '基础知识掌握情况',
 				css : {
 					width: 310,
 					height: 50,
@@ -412,37 +459,28 @@
 					opacity: 0,
 				}
 			})
-		.addPage()
-			.addComponent('caption',{
-				type: 'base',
-				title: 'Javascript相关技能',
+			.addComponent('radar',{
+				type: 'radar',
+				center: true,
+				date:{
+					name:['html','css','javascript','Dom','jquery','PS'],
+					percent:[.9,.9,.8,.8,.7,.6],
+					color:['#ff7676'],
+				},
 				css : {
-					width: 310,
-					height: 50,
-					top: 50,
-					left: 0,
-					background: 'url(./img/caption.png) 0 0 / contain no-repeat',
-				}
-			})
-			.addComponent('footer',{
-				type: 'base',
-				css : {
-					width: '100%',
-					height: 50,
-					bottom: -50,
-					left: 0,
-					background: 'url(./img/footer.png) 0 0 / contain no-repeat',
+					width: '300px',
+					height: '300px',
+					top: 200,
 					opacity: 0,
 				},
 				animateIn: {
-					bottom: 0,
 					opacity: 1,
 				},
 				animateOut: {
-					bottom: -50,
 					opacity: 0,
-				}
+				},
 			})
+		
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',

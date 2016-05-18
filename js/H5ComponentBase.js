@@ -6,6 +6,13 @@ function H5ComponentBase(name,cfg) {
 
 	cfg.text && base.html(cfg.text);
 
+	if(cfg.direc){
+		base.text(cfg.direc);
+		base.on('click',function () {
+			$.fn.fullpage.moveTo(3,0);
+		});
+	}
+
 	if (cfg.center === true) {
 		base.css({left:'50%',transform:'translateX(-50%)'});
 	}
