@@ -10,7 +10,7 @@ function H5ComponentClock(name,cfg) {
 	function clockPanel() {
 		// 表盘圆
 		ctx.strokeStyle = '#F86060';
-		ctx.lineWidth = 2;
+		ctx.lineWidth = 6;
 		ctx.beginPath();
 		ctx.arc(300,300,300,0,2*Math.PI);
 		ctx.stroke();
@@ -29,7 +29,7 @@ function H5ComponentClock(name,cfg) {
 			var y2 = 300 + Math.cos(rad) * 300;
 
 			ctx.strokeStyle = '#F86060';
-			ctx.lineWidth = 1;
+			ctx.lineWidth = 3;
 			ctx.beginPath();
 			ctx.moveTo(x1,y1);
 			ctx.lineTo(x2,y2);
@@ -44,7 +44,7 @@ function H5ComponentClock(name,cfg) {
 			var y2 = 300 + Math.cos(rad) * 300;
 
 			ctx.strokeStyle = '#F86060';
-			ctx.lineWidth = 2;
+			ctx.lineWidth = 6
 			ctx.beginPath();
 			ctx.moveTo(x1,y1);
 			ctx.lineTo(x2,y2);
@@ -53,7 +53,7 @@ function H5ComponentClock(name,cfg) {
 
 		ctx.strokeStyle = '#F86060';
 		ctx.fillStyle = '#F86060';
-		ctx.lineWidth = 1;
+		ctx.lineWidth = 3;
 		ctx.beginPath();
 		ctx.arc(300,300,5,0,2*Math.PI);
 		ctx.fill();
@@ -92,7 +92,7 @@ function H5ComponentClock(name,cfg) {
 		var y2 = 300 + Math.cos(rad) * 195;
 
 		ctx.strokeStyle = '#F86060';
-		ctx.lineWidth = 1;
+		ctx.lineWidth = 3;
 		ctx.beginPath();
 		ctx.moveTo(x1,y1);
 		ctx.lineTo(x2,y2);
@@ -106,7 +106,7 @@ function H5ComponentClock(name,cfg) {
 		var y2 = 300 + Math.cos(rad) * 105;
 
 		ctx.strokeStyle = '#F86060';
-		ctx.lineWidth = 2;
+		ctx.lineWidth = 6;
 		ctx.beginPath();
 		ctx.moveTo(x1,y1);
 		ctx.lineTo(x2,y2);
@@ -130,14 +130,14 @@ function H5ComponentClock(name,cfg) {
 		clockPanel();
 
 		ctx.strokeStyle = '#F86060';
-		ctx.lineWidth = 2;
+		ctx.lineWidth = 6;
 		ctx.beginPath();
 		ctx.moveTo(285,300);
 		ctx.lineTo(195,300);
 		ctx.stroke();
 
 		ctx.strokeStyle = '#F86060';
-		ctx.lineWidth = 1;
+		ctx.lineWidth = 3;
 		ctx.beginPath();
 		ctx.moveTo(300,285);
 		ctx.lineTo(300,105);
