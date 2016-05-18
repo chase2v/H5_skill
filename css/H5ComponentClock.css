@@ -5,3 +5,7 @@
 	padding-top: 75px;
 	line-height: 30px;
 }
+.H5Component_clock canvas{
+	width: 100%;
+	height: 100%;
+}

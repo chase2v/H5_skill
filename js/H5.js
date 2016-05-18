@@ -49,6 +49,7 @@ function H5() {
 
 	this.loader = function () {
 		this.fullpage.fullpage({
+			direction: 'horizontal',
 			onLeave: function(index, nextIndex, direction){
 				$(this).find('.H5Component').trigger('onLeave');
 			},
