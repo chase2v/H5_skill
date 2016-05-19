@@ -1,13 +1,28 @@
 .H5Component_point{
-	border-radius: 50%;
+	
 }
-.H5Component_pointChild{
+.H5ComponentPoint_father{
+	z-index: 0;
+	position: absolute;
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+}
+.H5ComponentPoint_father:first-child{
+	z-index: 1;
+}
+.point_child{
+	z-index: -1;
+	border-radius: 50%;
+	position: absolute;
 	width: 50%;
 	height: 50%;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
 	opacity: .75;
+}
+.point_child_active{
 	-webkit-animation: breath 3s ease-out infinite;
 	-o-animation: breath 3s ease-out infinite;
 	animation: breath 3s ease-out infinite;

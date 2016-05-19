@@ -35,49 +35,37 @@
 		// $.fn.fullpage.moveTo(3,0);
 
 		// 设置组件参数
-		var cfg = [
-			{
-				type: 'point',
-				name: 'Javascript',
-				date: '50%',
-				css : {
-					width: '200px',
-					height: '200px',
-					top: '200px',
-					left: '200px',
-					background: '#555',
-				},
-				// animateIn: {
-				// 	opacity: 1,
-				// }
+		var cfg ={
+			/*
+				散点图参数设置
+				@type  'point'
+				@date  name,percent,color
+				@css  width,height,top,left  组件框的大小与位置
+				@position  left,top  子圆的最终位置
+			*/
+			type: 'point',
+			date: {
+				name: ['Javascript','html','DOM'],
+				percent: [.5,.3,.4],
+				color: ['red','yellow','green'],
 			},
-			{
-				type: 'point',
-				name: 'Html',
-				date: '30%',
-				css : {
-					width: '200px',
-					height: '200px',
-					top: '200px',
-					// left: '300px',
-					background: 'red',
-				},
-				ischild: true,
-				// animateIn: {
-				// 	opacity: 1,
-				// }
+			css : {
+				width: 200,
+				height: 200,
+				top: '200px',
+				left: '200px'
 			},
-		]
-		var point;
-		for (var i = 0; i <= cfg.length - 1; i++) {
-			if (i == 0) {
-				point = new H5ComponentPoint('point',cfg[i]);
-				$('#page_1').append(point);
-			} else{
-				point.append(new H5ComponentPoint('point',cfg[i]))
+			position:{
+				left:[100,100],
+				top:[200,-200]
 			}
-			
+			// animateIn: {
+			// 	opacity: 1,
+			// }
 		}
+		var point;
+		point = new H5ComponentPoint('point',cfg);
+		$('#page_1').append(point);
 		
 		
 		// point.fadeIn();
