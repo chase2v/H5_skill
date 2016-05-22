@@ -16,3 +16,11 @@
 	height: 25px;
 	width: 75%;
 }
+.H5Component_footer{
+	animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}

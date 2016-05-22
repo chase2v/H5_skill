@@ -6,7 +6,7 @@
 .section{
 	position: relative;
 	width: 100%;
-	/*background: #eee;	*/
+	background: url(../img/page_bg.png);	
 }
 .section:first-child{
 	background: #f86060;
