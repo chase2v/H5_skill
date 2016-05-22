@@ -23,9 +23,9 @@
 	opacity: .75;
 }
 .point_child_active{
-	-webkit-animation: breath 3s ease-out infinite;
-	-o-animation: breath 3s ease-out infinite;
-	animation: breath 3s ease-out infinite;
+	-webkit-animation: breath 3s ease-out infinite none;
+	-o-animation: breath 3s ease-out infinite none;
+	animation: breath 3s ease-out infinite none;
 }
 .point_date{
 	position: absolute;
@@ -39,6 +39,7 @@
 }
 
 @keyframes breath{
+	0%{width: 100%; height: 100%; opacity: 1;}
 	50%{width: 100%; height: 100%; opacity: .55;}
 	100%{width: 135%; height: 135%; opacity: 0;}
 }
