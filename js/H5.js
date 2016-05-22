@@ -1,5 +1,6 @@
 function H5() {
-	this.fullpage = $('<div id="fullpage">');
+	this.id = 'H5_' + Math.ceil(Math.random()*1000);
+	this.fullpage = $('<div id="fullpage">').hide();
 	this.page = [];
 	$('body').append(fullpage);
 
@@ -49,7 +50,6 @@ function H5() {
 
 	this.loader = function () {
 		this.fullpage.fullpage({
-			direction: 'horizontal',
 			onLeave: function(index, nextIndex, direction){
 				$(this).find('.H5Component').trigger('onLeave');
 			},
@@ -57,10 +57,11 @@ function H5() {
 				$(this).find('.H5Component').trigger('onLoad');
 			}
 		});
-
+		this.fullpage.show();
 		this.page[0].find('.H5Component').trigger('onLoad');
 		// $.fn.fullpage.moveTo(6, 0);
 	}
+	this.loader = typeof H5_loading == 'function' ? H5_loading : this.loader;
 
 	return this;
 }
