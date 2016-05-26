@@ -1,15 +1,18 @@
 function H5ComponentRadar(name,cfg) {
 	var radar = new H5ComponentBase(name,cfg);
+	var radarWidth = cfg.css.width*3;
+	var radarHeight = cfg.css.height*3;
+	var r = radarWidth/2;
 
 	var draw = document.createElement('canvas');
-	draw.height = 900;
-	draw.width = 900;
+	draw.height = radarWidth;
+	draw.width = radarWidth;
 	// draw.style.background = 'red';
 	radar.append(draw);
 	var ctx = draw.getContext('2d');
 
 	var radarAnimation = function () {
-		ctx.clearRect(0,0,900,900);
+		ctx.clearRect(0,0,radarWidth,radarHeight);
 
 		// 圆心（150,150） r 100
 		// x 坐标 = a + Math.sin(rad) * r;
@@ -24,25 +27,25 @@ function H5ComponentRadar(name,cfg) {
 		var rad = 2*Math.PI/t;
 		for (var i = 10; i >= 1; i--) {
 			ctx.beginPath();
-			ctx.moveTo(450+Math.sin(rad)*30*i,450+Math.cos(rad)*30*i);
+			ctx.moveTo(r+Math.sin(rad)*30*i,r+Math.cos(rad)*30*i);
 			for (var j = 0; j <= t - 1; j++) {
-				var x = Math.ceil(450 + Math.sin(rad*(j+1))*30*i);
-				var y = parseInt(450 + Math.cos(rad*(j+1))*30*i);
+				var x = Math.ceil(r + Math.sin(rad*(j+1))*30*i);
+				var y = parseInt(r + Math.cos(rad*(j+1))*30*i);
 				ctx.lineTo(x,y);
 
 				// 添加项目名称
 				if(at == 300 && i == 10){
 					var childName = $('<div class="H5ComponentRadar_name">' + cfg.date.name[j] + '</div>');
-					cfg.date.color[j] && childName.css('color',cfg.date.color[j]);
-					if (x/3==150) {
+					cfg.date.color && childName.css('color',cfg.date.color[j]);
+					if (x/3==(r/3)) {
 						childName.css('left',(x/3-25) +'px');
-					} else if(x/3 < 150){
-						childName.css('right',(300-x/3) +'px');
-					}else if(x/3 > 150){
+					} else if(x/3 < (r/3)){
+						childName.css('right',(cfg.css.width-x/3) +'px');
+					}else if(x/3 > (r/3)){
 						childName.css('left',x/3+'px');
 					}
-					if (y/3<150) {
-						childName.css('bottom',(300-y/3) +'px');
+					if (y/3<(r/3)) {
+						childName.css('bottom',(cfg.css.height-y/3) +'px');
 					} else{
 						childName.css('top',y/3+'px');
 					}
@@ -69,18 +72,18 @@ function H5ComponentRadar(name,cfg) {
 
 		var per = cfg.date.percent;
 		for (var i = 0; i < t; i++) {
-			var x = 450 + Math.sin(rad*(i+1))*at*per[i];
-			var y = 450 + Math.cos(rad*(i+1))*at*per[i];
-			var nextX = 450 + Math.sin(rad*(i+2))*at*per[i+1];
-			var nextY = 450 + Math.cos(rad*(i+2))*at*per[i+1];
+			var x = r + Math.sin(rad*(i+1))*at*per[i];
+			var y = r + Math.cos(rad*(i+1))*at*per[i];
+			var nextX = r + Math.sin(rad*(i+2))*at*per[i+1];
+			var nextY = r + Math.cos(rad*(i+2))*at*per[i+1];
 			ctx.beginPath();
 		    ctx.moveTo(x,y);
 			ctx.arc(x,y,6,0,2*Math.PI);
 			ctx.fill();
 			
 			if(i == (t-1)){
-				nextX = 450 + Math.sin(rad)*at*per[0];
-				nextY = 450 + Math.cos(rad)*at*per[0];
+				nextX = r + Math.sin(rad)*at*per[0];
+				nextY = r + Math.cos(rad)*at*per[0];
 			}
 			ctx.lineTo(nextX,nextY);
 			

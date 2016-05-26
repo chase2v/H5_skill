@@ -15,3 +15,10 @@
 	font: 12px "Arial";
 	color: #99c0ff;
 }
+.H5Component_polyline canvas{
+	width: 100%;
+	height: 100%;
+}
+/*.H5Component_polyline{
+	position: relative;
+}*/

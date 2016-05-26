@@ -39,7 +39,7 @@ var H5_loading = function (images) {
 	});
 	this.fullpage.show();
 	this.page[0].find('.H5Component').trigger('onLoad');
-	// $.fn.fullpage.moveTo(6, 0);
+	// $.fn.fullpage.moveTo(8, 0);
 
 	// return this;
 }

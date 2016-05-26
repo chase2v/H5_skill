@@ -1,21 +1,24 @@
 function H5ComponentRing(name,cfg) {
 	var ring = new H5ComponentBase(name,cfg);
+	var ringWidth = cfg.css.width*3;
+	var ringHeight = cfg.css.height*3;
+	var r = ringWidth/2;
 
 	var draw = document.createElement('canvas');
-	draw.height = 400;
-	draw.width = 400;
+	draw.height = ringWidth;
+	draw.width = ringHeight;
 	// draw.style.background = 'red';
 	ring.append(draw);
 	var ctx = draw.getContext('2d');
 
 	function ringAnimation() {
-		ctx.clearRect(0,0,400,400);
+		ctx.clearRect(0,0,ringWidth,ringHeight);
 		ctx.strokeWidth = 1;
 		ctx.strokeStyle = '#ccc';
 
 		ctx.fillStyle = '#ccc';
 		ctx.beginPath();
-		ctx.arc(200,200,100,0,2*Math.PI);
+		ctx.arc(r,r,r,0,2*Math.PI);
 		ctx.fill();
 		ctx.stroke();
 
@@ -26,15 +29,15 @@ function H5ComponentRing(name,cfg) {
 		var per = 0;
 		var prePer = 0;
 		var rad;
-		var x = 200;
-		var y = 100;
+		var x = r;
+		var y = 0;
 		var preCircleRad;
 		var circleRad = -0.5 * Math.PI;
 		
 		ctx.fillStyle = cfg.date.color;
 		ctx.strokeStyle = cfg.date.color;
 		ctx.beginPath();
-		ctx.moveTo(200,200);
+		ctx.moveTo(r,r);
 		ctx.lineTo(x,y);
 		
 		prePer += per;
@@ -43,13 +46,13 @@ function H5ComponentRing(name,cfg) {
 		// 2p(1-(per+pre+1/2))
 		// 停点计算
 		rad = 2*Math.PI - (2*Math.PI * per + Math.PI + prePer * 2*Math.PI);
-		x = 200 + Math.sin(rad) * 100;
-		y = 200 + Math.cos(rad) * 100;
+		x = r + Math.sin(rad) * ring;
+		y = r + Math.cos(rad) * ring;
 
 		// 画弧线
 		preCircleRad = circleRad;
 		circleRad = per * 2*Math.PI + preCircleRad;
-		ctx.arc(200,200,100,preCircleRad,circleRad);
+		ctx.arc(r,r,r,preCircleRad,circleRad);
 
 		ctx.closePath();
 		ctx.fill();
@@ -60,9 +63,9 @@ function H5ComponentRing(name,cfg) {
 		ctx.fillStyle = '#ccc';
 		ctx.strokeStyle = '#ccc';
 		ctx.beginPath();
-		ctx.moveTo(200,200);
-		ctx.lineTo(200,100);
-		ctx.arc(200,200,100,-0.5*Math.PI,2*Math.PI/100*t-0.5*Math.PI,true);
+		ctx.moveTo(r,r);
+		ctx.lineTo(r,0);
+		ctx.arc(r,r,r,-0.5*Math.PI,2*Math.PI/100*t-0.5*Math.PI,true);
 		if (t != 100) {
 			ctx.closePath();
 			ctx.fill();	
@@ -72,7 +75,7 @@ function H5ComponentRing(name,cfg) {
 		ctx.fillStyle = '#fff';
 		ctx.strokeStyle = '#fff';
 		ctx.beginPath();
-		ctx.arc(200,200,80,0,2*Math.PI);
+		ctx.arc(r,r,r*.8,0,2*Math.PI);
 		ctx.fill();
 		ctx.stroke();
 

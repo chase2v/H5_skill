@@ -1,23 +1,20 @@
 function H5ComponentPie(name,cfg) {
 	var pie = new H5ComponentBase(name,cfg);
+	var pieWidth = cfg.css.width*3;
+	var pieHeight = cfg.css.height*3;
+	var r = pieWidth/2;
 
 	var draw = document.createElement('canvas');
-	draw.height = 400;
-	draw.width = 400;
-	// draw.style.background = 'red';
+	draw.height = pieHeight;
+	draw.width = pieWidth;
 	pie.append(draw);
 	var ctx = draw.getContext('2d');
 
 	function pieAnimation() {
-		ctx.clearRect(0,0,400,400);
-		ctx.strokeWidth = 1;
-		ctx.strokeStyle = '#ccc';
+		ctx.clearRect(0,0,pieWidth,pieHeight);
 
-		ctx.fillStyle = '#ccc';
-		ctx.beginPath();
-		ctx.arc(200,200,100,0,2*Math.PI);
-		ctx.fill();
-		ctx.stroke();
+		ctx.strokeWidth = 3;
+		ctx.strokeStyle = '#ccc';
 
 		// 圆心（200,200） r 100
 		// x 坐标 = a + Math.sin(rad) * r;
@@ -26,15 +23,15 @@ function H5ComponentPie(name,cfg) {
 		var per = 0;
 		var prePer = 0;
 		var rad;
-		var x = 200;
-		var y = 100;
+		var x = r;
+		var y = 0;
 		var preCircleRad;
 		var circleRad = -0.5 * Math.PI;
 		for(var i = 0; i < cfg.date.name.length; i++){
 			ctx.fillStyle = cfg.date.color[i];
 			ctx.strokeStyle = cfg.date.color[i];
 			ctx.beginPath();
-			ctx.moveTo(200,200);
+			ctx.moveTo(r,r);
 			ctx.lineTo(x,y);
 			
 			prePer += per;
@@ -43,13 +40,13 @@ function H5ComponentPie(name,cfg) {
 			// 2p(1-(per+pre+1/2))
 			// 停点计算
 			rad = 2*Math.PI - (2*Math.PI * per + Math.PI + prePer * 2*Math.PI);
-			x = 200 + Math.sin(rad) * 100;
-			y = 200 + Math.cos(rad) * 100;
+			x = r + Math.sin(rad) * r;
+			y = r + Math.cos(rad) * r;
 
 			// 画弧线
 			preCircleRad = circleRad;
 			circleRad = per * 2*Math.PI + preCircleRad;
-			ctx.arc(200,200,100,preCircleRad,circleRad);
+			ctx.arc(r,r,r,preCircleRad,circleRad);
 
 			ctx.closePath();
 			ctx.fill();
@@ -59,30 +56,31 @@ function H5ComponentPie(name,cfg) {
 			// 位置为每段弧线的中间位置
 			// 则 per = 1/2 per; 即 rad += per*Math.PI
 			if (t==100) {
-				var midX = 200 + Math.sin(rad+per*Math.PI) * 100;
-				var midY = 200 + Math.cos(rad+per*Math.PI) * 100;
+				var midX = r + Math.sin(rad+per*Math.PI) * r;
+				var midY = r + Math.cos(rad+per*Math.PI) * r;
 
-				var lineX = midX + Math.sin(rad+per*Math.PI) * 30;
-				var lineY = midY + Math.cos(rad+per*Math.PI) * 30;
-				ctx.strokeStyle = '#ccc';
-				ctx.beginPath();
-				ctx.moveTo(midX,midY);
-				ctx.lineTo(lineX,lineY);
-				ctx.stroke();
+				var lineX = midX + Math.sin(rad+per*Math.PI) * 90;
+				var lineY = midY + Math.cos(rad+per*Math.PI) * 90;
+				// ctx.strokeWidth = 9;
+				// ctx.strokeStyle = '#000';
+				// ctx.beginPath();
+				// ctx.moveTo(midX,midY);
+				// ctx.lineTo(lineX,lineY);
+				// ctx.stroke();
 
 				var childName = $('<div class="H5ComponentPie_name">' + cfg.date.name[i] + '<br>' + per*100 + '%</div>');
 				cfg.date.color[i] && childName.css('color',cfg.date.color[i]);
-				if (midX<200) {
-					childName.css({right:(400-lineX)});
+				if (midX<(cfg.css.width/2)) {
+					childName.css({right:(cfg.css.width-lineX/3)});
 				} else{
-					childName.css('left',(lineX)+'px');
+					childName.css('left',(lineX/3)+'px');
 				}
-				if (midY<200) {
-					childName.css('bottom',(400-lineY) +'px');
-				} else if(midY == 200){
-					childName.css('top',(lineY-15)+'px');
+				if (midY<(cfg.css.height/2)) {
+					childName.css('bottom',(cfg.css.height-lineY/3) +'px');
+				} else if(midY == (cfg.css.height/2)){
+					childName.css('top',(lineY/3-15)+'px');
 				}else{
-					childName.css('top',lineY+'px');
+					childName.css('top',lineY/3+'px');
 				}
 				setTimeout(function (childName) {
 					return function () {
@@ -96,12 +94,12 @@ function H5ComponentPie(name,cfg) {
 		ctx.fillStyle = '#ccc';
 		ctx.strokeStyle = '#ccc';
 		ctx.beginPath();
-		ctx.moveTo(200,200);
-		ctx.lineTo(200,100);
-		ctx.arc(200,200,100,-0.5*Math.PI,2*Math.PI/100*t-0.5*Math.PI,true);
+		ctx.moveTo(r,r);
+		ctx.lineTo(r,0);
+		ctx.arc(r,r,r,-0.5*Math.PI,2*Math.PI/100*t-0.5*Math.PI,true);
 		if (t != 100) {
 			ctx.closePath();
-			ctx.fill();	
+			ctx.fill();
 			ctx.stroke();
 		}		
 

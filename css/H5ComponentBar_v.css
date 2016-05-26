@@ -1,3 +1,6 @@
+.H5Component_bar_v{
+	display: none;
+}
 .H5Component_bar_v_child{
 	position: relative;
 	float: left;
@@ -30,7 +33,6 @@
 	width: 30px;
 	font: 15px "Arial";
 	color: #99c0ff;
-	display: none;
 }
 
 @keyframes load_v{
