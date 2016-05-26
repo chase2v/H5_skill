@@ -1,13 +1,18 @@
 .H5Component{
 	position: absolute;
 }
+.H5Component_caption{
+	position: relative;
+}
 .title{
-	font: bold 20px "等线";
+	position: absolute;
+	font: bold 18px "等线";
 	color: #fff;
-	width: 100%;
+	width: 85%;
+	left: 15%;
 	text-align: center;
-	height: 50px;
-	line-height: 50px;
+	height: 42px;
+	line-height: 42px;
 }
 .H5Component_direc{
 	position: absolute;
