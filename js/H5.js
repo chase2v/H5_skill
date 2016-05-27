@@ -42,6 +42,9 @@ function H5() {
 			case 'clock':
 			currentPage.append(new H5ComponentClock(name,cfg));
 			break;
+			case 'dir':
+			currentPage.append(new H5ComponentDir(name,cfg));
+			break;
 			default:
 			currentPage.append(new H5ComponentBase(name,cfg));
 		}

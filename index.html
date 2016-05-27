@@ -17,7 +17,7 @@
 	<script type="text/javascript">
 		// 加载组件资源
 		var component = [
-			'Base','Bar','Bar_v','Pie','Point','Polyline','Radar','Ring','Clock'
+			'Base','Bar','Bar_v','Pie','Point','Polyline','Radar','Ring','Clock','Dir'
 		];
 		for (var i = 0; i < component.length; i++) {
 			document.write('<script type="text/javascript" src="./js/H5Component' + component[i] + '.js"><\/script>');
@@ -122,53 +122,47 @@
 				speed: 1000,
 				delay:1000,
 			})
-		// .addPage()
-		// 	.addComponent('caption',{
-		// 		type: 'base',
-		// 		title: '目录',
-		// 		css : {
-		// 			width: '62%',
-		// 			height: '8%',
-		// 			top: 25,
-		// 			left: 0,
-		// 			background: 'url(./img/caption_2.png) 0 0 / contain no-repeat',
-		// 		}
-		// 	})
-		// 	.addComponent('footer',{
-		// 		type: 'base',
-		// 		center: true,
-		// 		css : {
-		// 			width: 38,
-		// 			height: 18,
-		// 			bottom: -50,
-		// 			background: 'url(./img/down.png) 0 0 / contain no-repeat',
-		// 			opacity: 0,
-		// 		},
-		// 		animateIn: {
-		// 			bottom: 20,
-		// 			opacity: 1,
-		// 		},
-		// 		animateOut: {
-		// 			bottom: -50,
-		// 			opacity: 0,
-		// 		}
-		// 	})
-		// 	.addComponent('direc',{
-		// 		type: 'base',
-		// 		center: true,
-		// 		direc: '1.简介',
-		// 		css:{
-		// 			top: 200,
-		// 		},
-		// 		animateIn: {
-		// 			bottom: 0,
-		// 			opacity: 1,
-		// 		},
-		// 		animateOut: {
-		// 			bottom: -50,
-		// 			opacity: 0,
-		// 		}
-		// 	})
+		.addPage()
+			.addComponent('caption',{
+				type: 'base',
+				title: '目录',
+				css : {
+					width: '62%',
+					height: '8%',
+					top: 25,
+					left: 0,
+					background: 'url(./img/caption_2.png) 0 0 / contain no-repeat',
+				}
+			})
+			.addComponent('footer',{
+				type: 'base',
+				center: true,
+				css : {
+					width: 38,
+					height: 18,
+					bottom: -50,
+					background: 'url(./img/down.png) 0 0 / contain no-repeat',
+					opacity: 0,
+				},
+				animateIn: {
+					bottom: 20,
+					opacity: 1,
+				},
+				animateOut: {
+					bottom: -50,
+					opacity: 0,
+				}
+			})
+			.addComponent('dir',{
+				type: 'dir',
+				center: true,
+				date:['柱状图展示（垂直）','柱状图展示','饼图展示','折线图展示','环图展示','其他知识掌握度','基础知识掌握度','学习总时长','网页简介'],
+				css : {
+					width: 200,
+					height: 400,
+					top: 150,
+				}
+			})
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
@@ -201,7 +195,7 @@
 			.addComponent('text',{
 				type: 'base',
 				center: true,
-				text: '这个网页会不断地进行更新，自己有任何关于canvas动画的想法，都会在这里实现。不过也刚刚开始，所以ui仅进行了最小成本设计，动画也不多也不出彩，我会不断学习与进步。这个网页是我学习制作的项目，目前仅用来展示，所以数据仅供参考。',
+				text: '这个网页会不断地进行更新，自己有任何关于动画的想法，都会在这里实现。不过也刚刚开始，所以ui仅进行了最小成本设计，动画也不多也不出彩，我会不断学习与进步。因为这个网页是我学习制作的项目，目前仅用来展示，所以数据仅供参考。',
 				css : {
 					width: '75%',
 					borderRadius: 20,
@@ -572,7 +566,7 @@
 		.addPage()
 			.addComponent('caption',{
 				type: 'base',
-				title: '柱状图展示',
+				title: '柱状图展示（垂直）',
 				css : {
 					width: 230,
 					height: 55,
